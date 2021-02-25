@@ -53,24 +53,80 @@ function emprunt() {
   }
 
   function most() {
- 
+    max = 0;
+    count =0;
+    indice_max = 0;
+    while ( count < books.length ){
+      
+      if (books[count].rented > max){
+          max = (books[count].rented);
+          indice_max = count;
 
-   
+      }
+      count += 1;
+    }
+    console.log(books[indice_max]);
   }
 
   function least() {
+    min = 100;
+    count = 0;
+    indice_min = 0;
+    while ( count < books.length ){
+      
+      if (books[count].rented < min){
+          min = (books[count].rented);
+          indice_min = count;
 
-   
+      }
+      count += 1;
+    }
+    console.log(books[indice_min]);
   }
 
+   
+  
   function show() {
+    count = 0;
+    indice = 0;
+    
+    while ( count < books.length ){
 
+      if (books[count].id == 873495){
+        indice = count; 
+      }
+      count  +=1;
+    }
+    console.log(books[indice]);
   }
 
   function supp() {
+    count = 0;
+    indice = 0;
+    
+    while ( count < books2.length ){
 
+      if (books2[count].id == 133712){
+        indice = count; 
+      }
+      count  +=1;
+    }
+   books2.splice(indice,1);
+   console.log("Le livre ave l'id 133712 est bien supprimé");
   }
 
   function sortbook() {
-
+    console.log("Voici les livres par ordre alphabétique:");
+    books2.sort(function(a,b){
+        var keyA = new String(a.title),
+         keyB = new String(b.title);
+        b= [keyA, keyB];
+        b.sort();
+        if (b[0]==keyA) return -1;
+        if (b[0]==keyB) return 1;
+        return 0;
+    });
+    for(var count = 0; count <books2.length; count++){
+        console.log(books2[count]);
+      }
   }
